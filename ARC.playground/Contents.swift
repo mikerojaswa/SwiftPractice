@@ -60,6 +60,61 @@ anakin!.master = obiWan
 obiWan = nil
 anakin = nil
 
+class Tenant {
+    let name: String
+    init(name: String) { self.name = name }
+    var apartment: Apartment?
+    deinit { print("\(name) is being deinitialized") }
+}
 
+class Apartment {
+    let unit: String
+    init(unit: String) { self.unit = unit }
+    weak var tenant: Tenant?
+    deinit { print("Apartment \(unit) is being deinitialized") }
+}
 
+var john: Tenant?
+var unit4A: Apartment?
 
+john = Tenant(name: "John Appleseed")
+unit4A = Apartment(unit: "4A")
+
+john!.apartment = unit4A
+unit4A!.tenant = john
+
+//First we break strong reference from John to apartment, we can do this because apartment has a weak reference.
+john = nil
+unit4A = nil
+
+//Mark: Strong references between a class and a closure
+
+class HTMLElement {
+    
+    let name: String
+    let text: String?
+    
+    lazy var asHTML: () -> String = {
+        [unowned self] in
+        if let text = self.text {
+            return "<\(self.name)>\(text)</\(self.name)>"
+        } else {
+            return "<\(self.name) />"
+        }
+    }
+    
+    init(name: String, text: String? = nil) {
+        self.name = name
+        self.text = text
+    }
+    
+    deinit {
+        print("\(name) is being deinitialized")
+    }
+    
+}
+
+var paragraph: HTMLElement? = HTMLElement(name: "p", text: "hello, world")
+print(paragraph!.asHTML())
+// Prints "<p>hello, world</p>"
+paragraph = nil

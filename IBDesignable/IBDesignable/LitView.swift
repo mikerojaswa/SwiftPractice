@@ -55,7 +55,6 @@ class LitView : UIView {
     
     @IBInspectable var title: String? {
         didSet {
-            
             myLabel.text = title
         }
     }

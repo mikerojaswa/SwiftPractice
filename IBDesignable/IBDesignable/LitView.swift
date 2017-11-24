@@ -43,7 +43,6 @@ class LitView : UIView {
         let nib = UINib(nibName: String(describing: type(of: self)), bundle: bundle)
         let nibView = nib.instantiate(withOwner: self, options: nil).first as! UIView
         
-        
         return nibView
     }
 
@@ -56,6 +55,7 @@ class LitView : UIView {
     @IBInspectable var title: String? {
         didSet {
             myLabel.text = title
+            myLabel.adjustsFontSizeToFitWidth = true
         }
     }
     
@@ -71,5 +71,29 @@ class LitView : UIView {
         }
     }
     
+    @IBInspectable var borderWidth: CGFloat = 0.0 {
+        didSet {
+            layer.borderWidth = borderWidth
+        }
+    }
     
+    @IBInspectable var borderColor: UIColor? {
+        didSet {
+            layer.borderColor = borderColor?.cgColor
+        }
+    }
+    
+    @IBInspectable var showShadow: Bool = false {
+        didSet {
+            if(showShadow){
+                layer.shadowColor = UIColor.black.cgColor
+                layer.shadowRadius = 10.0
+                layer.shadowOpacity = 1.0
+                layer.shadowOffset = CGSize.zero
+            }else{
+                layer.shadowRadius = 0.0
+            }
+        }
+    }
+
 }

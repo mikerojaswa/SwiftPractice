@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="ScrollViewConstraintTest" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JSW-NF-ZOi">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9MC-uL-6SE">
+                                        <rect key="frame" x="59" y="50" width="257" height="400"/>
+                                        <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="400" id="IhZ-hZ-Fuh"/>
+                                        </constraints>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lW6-1y-Nc2">
+                                        <rect key="frame" x="59" y="500" width="257" height="400"/>
+                                        <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="400" id="zVQ-xN-dMd"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="lW6-1y-Nc2" firstAttribute="top" secondItem="9MC-uL-6SE" secondAttribute="bottom" constant="50" id="Jrh-2v-O7K"/>
+                                    <constraint firstItem="lW6-1y-Nc2" firstAttribute="centerX" secondItem="JSW-NF-ZOi" secondAttribute="centerX" id="PmP-cD-4SD"/>
+                                    <constraint firstAttribute="bottom" secondItem="lW6-1y-Nc2" secondAttribute="bottom" constant="-233" id="QVe-3x-tG3"/>
+                                    <constraint firstItem="9MC-uL-6SE" firstAttribute="centerX" secondItem="JSW-NF-ZOi" secondAttribute="centerX" id="Zrs-If-Cnd"/>
+                                    <constraint firstItem="lW6-1y-Nc2" firstAttribute="leading" secondItem="JSW-NF-ZOi" secondAttribute="leading" constant="59" id="brW-Y0-xxV"/>
+                                    <constraint firstItem="9MC-uL-6SE" firstAttribute="leading" secondItem="JSW-NF-ZOi" secondAttribute="leading" constant="59" id="cfW-MC-L9B"/>
+                                    <constraint firstItem="9MC-uL-6SE" firstAttribute="top" secondItem="JSW-NF-ZOi" secondAttribute="top" constant="50" id="hyy-jf-PMi"/>
+                                    <constraint firstAttribute="trailing" secondItem="lW6-1y-Nc2" secondAttribute="trailing" constant="59" id="n7H-xE-BNu"/>
+                                    <constraint firstAttribute="trailing" secondItem="9MC-uL-6SE" secondAttribute="trailing" constant="59" id="sbW-hF-YyZ"/>
+                                </constraints>
+                            </scrollView>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="JSW-NF-ZOi" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="JyL-ZI-1Je"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="top" secondItem="JSW-NF-ZOi" secondAttribute="top" constant="20" id="Yem-vI-2DC"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="JSW-NF-ZOi" secondAttribute="bottom" id="ifD-UN-lxM"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="JSW-NF-ZOi" secondAttribute="trailing" id="okL-2r-8vJ"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                    </view>
+                    <connections>
+                        <outlet property="blueView" destination="lW6-1y-Nc2" id="FuG-Bt-NHP"/>
+                        <outlet property="redView" destination="9MC-uL-6SE" id="usa-lB-u7I"/>
+                        <outlet property="scrollView" destination="JSW-NF-ZOi" id="5n0-fS-vO1"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="136.80000000000001" y="133.5832083958021"/>
+        </scene>
+    </scenes>
+</document>
